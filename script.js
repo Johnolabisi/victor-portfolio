@@ -2,7 +2,7 @@
 function animateCounter(el) {
     const target = parseInt(el.dataset.target, 10);
     const suffix = el.dataset.suffix || '';
-    const duration = 1800;           // ms
+    const duration = 1800;           
     const frameRate = 60;
     const totalFrames = Math.round(duration / (1000 / frameRate));
     let frame = 0;
@@ -39,3 +39,17 @@ const observer = new IntersectionObserver(
 );
 
 if (statsSection) observer.observe(statsSection);
+
+document.querySelectorAll('.stat-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('active');
+  });
+});
+
+const img = document.querySelector('.img');
+
+img.addEventListener('click', () => {
+  img.src = img.src.includes('victor.jpg')
+    ? 'victor3.jpg'
+    : 'victor.jpg';
+});
