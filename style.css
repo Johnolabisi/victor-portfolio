@@ -67,11 +67,12 @@ li a{
     font-family: var(--font-head);
 }
 
-li:hover{
+li:hover,
+li:active {
     text-decoration: underline;
     font-size: 30px;
-
 }
+
 
 #hero {
     position: relative;
@@ -276,12 +277,17 @@ a{
     border-radius: 18px 18px 0 0;
 }
  
-.stat-card:hover {
+.stat-card:hover,
+.stat-card:active {
+    transform: translateY(-6px);
+}
+ 
+.stat-card.active {
     transform: translateY(-6px);
     border-color: var(--accent);
     box-shadow: 0 12px 40px rgba(0, 255, 135, 0.15);
 }
- 
+
 .stat-icon {
     font-size: clamp(28px, 3.5vw, 44px);
     line-height: 1;
@@ -309,6 +315,18 @@ a{
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 500;
+}
+
+@media (hover: hover) {
+  .stat-card:hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (hover: none) {
+  .stat-card {
+    transform: translateY(-2px);
+  }
 }
 
 @media (min-width: 1920px) {
